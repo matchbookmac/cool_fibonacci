@@ -1,12 +1,11 @@
 class Fixnum
   define_method(:cool_fibonacci) do
-    sequence_number = self
-    fibonacci = [0, 1]
-    if(sequence_number > 0)
-      fibonacci_next = fibonacci[0].+fibonacci[1]
-      fibonacci = [fibonacci[1], fibonacci_next]
-      sequence_number = sequence_number.-(1)
+    if(self.eql?(0))
+      0
+    elsif(self.eql?(1))
+      1
+    else
+      (self.-(1)).cool_fibonacci().+((self.-(2)).cool_fibonacci())
     end
-    fibonacci[0]
   end
 end
